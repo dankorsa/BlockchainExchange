@@ -4,7 +4,7 @@ Implements Blockchain Exchange API (C#)
 
 To get started create ConnectionHandler.
 
-`public static ConnectionHandler client = new ConnectionHandler();`
+```public static ConnectionHandler client = new ConnectionHandler();```
 
 Call Connect method to create connection:
 
@@ -72,10 +72,34 @@ public void UnsubscribeTicker()
 
 public void SubscribeTrades(string symbol)
 public void UnsubscribeTrades()
-
-public void SubscribeTrading(string symbol)
-public void UnsubscribeTrading()
-
-public void CreateOrder()
-public void CancelOrder(string ID)
 ```
+
+# Orders:
+
+```
+public void SubscribeTrading()
+public void UnsubscribeTrading()
+```
+
+To create new order pass CreateNewOrderRequest to CreateOrder method.
+
+```
+CreateNewOrderRequest orderRequest  = new CreateNewOrderRequest
+{
+ClOrdID = "My order",
+ExecInst = "ALO",
+OrderQty = 0.000005,
+orderType = OrderType.Limit,
+Price = 7900,
+Side = SideType.Buy,
+Symbol = "BTC-EUR",
+TimeInForce = TimeInForceType.GoodTillCancel
+};
+
+client.CreateOrder(orderRequest);
+```
+To cancel order call CancelOrderMethod and pass order OrderId)
+
+`public void CancelOrder(string OrderId)`
+
+Order related calls - subscribing/ unscubscribing to trading channel, creating, cancelling orders will invoke OnTradingEvent.
