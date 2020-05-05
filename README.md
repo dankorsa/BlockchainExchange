@@ -73,6 +73,9 @@ public void UnsubscribeTicker()
 public void SubscribeTrades(string symbol)
 public void UnsubscribeTrades()
 
+public void SubscribeTrading(string symbol)
+public void UnsubscribeTrading()
+
 public void CreateOrder()
 public void CancelOrder(string ID)
 ```
