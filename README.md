@@ -74,7 +74,7 @@ public void SubscribeTrades(string symbol)
 public void UnsubscribeTrades()
 ```
 
-# Orders:
+## Orders:
 
 ```
 public void SubscribeTrading()
